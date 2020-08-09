@@ -18,7 +18,7 @@ def getEventProperties(eventList,
 
     return propertyDict
 
-def getSubmissionCommentsVotes(event):
+def getEventCommentsVotes(event):
 
     commentsList = event.comments.list()
 
@@ -43,6 +43,6 @@ if __name__ == '__main__':
     # [0.98, 0.97, 0.97, 0.96, 0.97, 0.97, 0.98, 0.96, 0.97, 0.96]
 
     # test 2
-    commentUpvoteDict, commentDownvoteDict = getSubmissionCommentsVotes(eventList[0])
+    commentUpvoteDict, commentDownvoteDict = getEventCommentsVotes(eventList[0])
 
     print('Upvote dict: ', commentUpvoteDict)
