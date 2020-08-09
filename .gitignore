@@ -1,2 +1,11 @@
+# Auths
 *.ini
+
+# Logs
 *.log
+
+# Distribution/packaging
+__pycache__/
+.py[cod]
+*.egg-info
+*.egg
