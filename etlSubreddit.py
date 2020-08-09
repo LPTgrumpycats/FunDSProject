@@ -18,6 +18,18 @@ def getSubmissionProperties(eventList,
 
     return propertyList
 
+def getSubmissionCommentsVotes(eventList):
+    commentList = getSubmissionProperties(eventList, 'comments')
+
+    commentUpvoteList = []
+    commentDownvoteList = []
+    for comment in commentList:
+        if type(comment).__name__=='Comment':
+            commentUpvoteList.append(comment.ups)
+            commentDownvoteList.append(comment.downs)
+
+    return (commentUpvoteList, commentDownvoteList)
+
 
 if __name__ == '__main__':
     aoa = AppOAuth()
