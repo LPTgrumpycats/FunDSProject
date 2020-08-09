@@ -10,25 +10,26 @@ def getSubmissionEvents(reddit,
 
     return subredditDataList
 
-def getSubmissionProperties(eventList,
-                            property='upvote_ratio'):
-    propertyList = []
-    for submission in eventList:
-        propertyList.append(submission.upvote_ratio)
+def getEventProperties(eventList,
+                       eventProperty='upvote_ratio'):
+    propertyDict = {}
+    for event in eventList:
+        propertyDict[event.id] = event.__getattr__(eventProperty)
 
-    return propertyList
+    return propertyDict
 
-def getSubmissionCommentsVotes(eventList):
-    commentList = getSubmissionProperties(eventList, 'comments')
+def getSubmissionCommentsVotes(event):
 
-    commentUpvoteList = []
-    commentDownvoteList = []
-    for comment in commentList:
+    commentsList = event.comments.list()
+
+    commentUpvoteDict = {}
+    commentDownvoteDict = {}
+    for comment in commentsList:
         if type(comment).__name__=='Comment':
-            commentUpvoteList.append(comment.ups)
-            commentDownvoteList.append(comment.downs)
+            commentUpvoteDict[comment.id] = comment.ups
+            commentDownvoteDict[comment.id] = comment.downs
 
-    return (commentUpvoteList, commentDownvoteList)
+    return (commentUpvoteDict, commentDownvoteDict)
 
 
 if __name__ == '__main__':
@@ -36,7 +37,12 @@ if __name__ == '__main__':
 
     # test 1
     eventList = getSubmissionEvents(aoa.reddit, 'popular', limit=10)
-    upvoteRatioList = getSubmissionProperties(eventList)
+    upvoteRatioList = getEventProperties(eventList)
 
     print('Upvote ratios: ', upvoteRatioList)
     # [0.98, 0.97, 0.97, 0.96, 0.97, 0.97, 0.98, 0.96, 0.97, 0.96]
+
+    # test 2
+    commentUpvoteDict, commentDownvoteDict = getSubmissionCommentsVotes(eventList[0])
+
+    print('Upvote dict: ', commentUpvoteDict)
