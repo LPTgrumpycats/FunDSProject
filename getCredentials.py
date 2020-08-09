@@ -11,6 +11,7 @@ class AppOAuth:
 
         self.getConfig()
         self.getSecrets()
+        self.getReddit()
 
     def getConfig(self):
         self.config = configparser.ConfigParser()
@@ -23,22 +24,23 @@ class AppOAuth:
         self.password = self.config[self.authSection]['password']
         self.userAgent = self.config[self.authSection]['userAgent']
 
+    def getReddit(self):
+        self.reddit = praw.Reddit(client_id=self.clientId,
+            client_secret=self.clientSecret,
+            password=self.password,
+            user_agent=self.userAgent,
+            username=self.userName)
+
 
 if __name__ == '__main__':
     aoa = AppOAuth()
 
-    reddit = praw.Reddit(client_id=aoa.clientId,
-                         client_secret=aoa.clientSecret,
-                         password=aoa.password,
-                         user_agent=aoa.userAgent,
-                         username=aoa.userName)
-
     # test 1 oauth
-    # reddit.subreddit('test').submit('Test Submission', url='https://reddit.com')
+    # aoa.reddit.subreddit('test').submit('Test Submission', url='https://reddit.com')
 
     # test 2 retrieve data
     submissionScoreList = []
-    for submission in reddit.subreddit('popular').hot(limit=256):
+    for submission in aoa.reddit.subreddit('popular').hot(limit=256):
         submissionScoreList.append(submission.score)
 
     print('Length of list: ', len(submissionScoreList))
