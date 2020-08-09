@@ -16,7 +16,6 @@ class DatabaseConnect:
     def getConfig(self):
         self.config = configparser.ConfigParser()
         self.config.read(self.configFile)
-        print('DEBUG: ', self.config.sections())
 
     def getSecrets(self):
         self.host = self.config[self.authSection]['host']
