@@ -10,7 +10,8 @@ def getSubmissionEvents(reddit,
 
     return subredditDataList
 
-def getSubmissionProperties(eventList, property='upvote_ratio'):
+def getSubmissionProperties(eventList,
+                            property='upvote_ratio'):
     propertyList = []
     for submission in eventList:
         propertyList.append(submission.upvote_ratio)
