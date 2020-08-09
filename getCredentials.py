@@ -33,10 +33,10 @@ if __name__ == '__main__':
                          user_agent=aoa.userAgent,
                          username=aoa.userName)
 
-    # test1 oauth
+    # test 1 oauth
     # reddit.subreddit('test').submit('Test Submission', url='https://reddit.com')
 
-    # test2 retrieve data
+    # test 2 retrieve data
     submissionScoreList = []
     for submission in reddit.subreddit('popular').hot(limit=256):
         submissionScoreList.append(submission.score)
