@@ -1,4 +1,4 @@
-from getAppCredentials import AppOAuth
+from auth.getAppCredentials import AppOAuth
 
 
 def getSubmissionEvents(reddit,
