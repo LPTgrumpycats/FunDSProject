@@ -11,11 +11,11 @@ class AppOAuth:
 
         self.getConfig()
         self.getSecrets()
-    
+
     def getConfig(self):
         self.config = configparser.ConfigParser()
         self.config.read(self.configFile)
-    
+
     def getSecrets(self):
         self.clientId = self.config[self.authSection]['clientId']
         self.clientSecret = self.config[self.authSection]['clientSecret']
@@ -32,7 +32,7 @@ if __name__ == '__main__':
                          password=aoa.password,
                          user_agent=aoa.userAgent,
                          username=aoa.userName)
-    
+
     # test1 oauth
     # reddit.subreddit('test').submit('Test Submission', url='https://reddit.com')
 
