@@ -29,7 +29,20 @@ def getEventCommentsVotes(event):
             commentUpvoteDict[comment.id] = comment.ups
             commentDownvoteDict[comment.id] = comment.downs
 
-    return (commentUpvoteDict, commentDownvoteDict)
+    return commentUpvoteDict, commentDownvoteDict
+
+def getSubredditName(event):
+    subredditName = event.subreddit.__dict__['display_name']
+
+    return subredditName
+
+def getSubredditNames(eventList):
+    subredditNameList = list()
+    for event in eventList:
+        subredditName = getSubredditName(event)
+        subredditNameList.append(subredditName)
+
+    return subredditNameList
 
 
 if __name__ == '__main__':
@@ -38,6 +51,7 @@ if __name__ == '__main__':
     # test 1
     eventList = getSubmissionEvents(aoa.reddit, 'popular', limit=10)
     upvoteRatioList = getEventProperties(eventList)
+    print(eventList)
 
     print('Upvote ratios: ', upvoteRatioList)
     # [0.98, 0.97, 0.97, 0.96, 0.97, 0.97, 0.98, 0.96, 0.97, 0.96]
