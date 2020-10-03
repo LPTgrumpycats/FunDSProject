@@ -4,7 +4,7 @@ import psycopg2
 
 class DatabaseConnect:
     def __init__(self,
-                 configFile='database.ini',
+                 configFile='FunDSProject/database.ini',
                  authSection='POSTGRES'):
         self.configFile = configFile
         self.authSection = authSection

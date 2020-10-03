@@ -4,7 +4,7 @@ import praw
 
 class AppOAuth:
     def __init__(self,
-                 configFile='config.ini',
+                 configFile='FunDSProject/config.ini',
                  authSection='REDDIT'):
         self.configFile = configFile
         self.authSection = authSection
