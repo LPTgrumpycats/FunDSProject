@@ -1,5 +1,5 @@
 import psycopg2
-from getDbCredentials import DatabaseConnect
+from .getDbCredentials import DatabaseConnect
 
 
 def getQuery(dc,
