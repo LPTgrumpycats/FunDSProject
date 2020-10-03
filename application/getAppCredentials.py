@@ -5,7 +5,7 @@ import praw
 class AppOAuth:
     def __init__(self,
                  configFile='FunDSProject/config.ini',
-                 authSection='REDDIT'):
+                 authSection='REDDIT') -> None:
         self.configFile = configFile
         self.authSection = authSection
 
@@ -13,18 +13,18 @@ class AppOAuth:
         self.getSecrets()
         self.getReddit()
 
-    def getConfig(self):
+    def getConfig(self) -> None:
         self.config = configparser.ConfigParser()
         self.config.read(self.configFile)
 
-    def getSecrets(self):
+    def getSecrets(self) -> None:
         self.clientId = self.config[self.authSection]['clientId']
         self.clientSecret = self.config[self.authSection]['clientSecret']
         self.userName = self.config[self.authSection]['userName']
         self.password = self.config[self.authSection]['password']
         self.userAgent = self.config[self.authSection]['userAgent']
 
-    def getReddit(self):
+    def getReddit(self) -> None:
         self.reddit = praw.Reddit(client_id=self.clientId,
             client_secret=self.clientSecret,
             password=self.password,

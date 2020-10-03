@@ -1,9 +1,11 @@
+from typing import List, Dict, Tuple
+
 from ..application.getAppCredentials import AppOAuth
 
 
 def getSubmissionEvents(reddit,
                         subreddit,
-                        limit=256):
+                        limit=256) -> List:
     subredditDataList = []
     for submission in reddit.subreddit(subreddit).top(limit=limit):
         subredditDataList.append(submission)
@@ -11,14 +13,14 @@ def getSubmissionEvents(reddit,
     return subredditDataList
 
 def getEventProperties(eventList,
-                       eventProperty='upvote_ratio'):
+                       eventProperty='upvote_ratio') -> Dict:
     propertyDict = {}
     for event in eventList:
         propertyDict[event.id] = event.__getattr__(eventProperty)
 
     return propertyDict
 
-def getEventCommentsVotes(event):
+def getEventCommentsVotes(event) -> Tuple[Dict, Dict]:
 
     commentsList = event.comments.list()
 
@@ -31,12 +33,12 @@ def getEventCommentsVotes(event):
 
     return commentUpvoteDict, commentDownvoteDict
 
-def getSubredditName(event):
+def getSubredditName(event) -> str:
     subredditName = event.subreddit.__dict__['display_name']
 
     return subredditName
 
-def getSubredditNames(eventList):
+def getSubredditNames(eventList) -> List[str]:
     subredditNameList = list()
     for event in eventList:
         subredditName = getSubredditName(event)

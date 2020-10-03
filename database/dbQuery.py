@@ -1,9 +1,12 @@
+from typing import List
+
 import psycopg2
+
 from .getDbCredentials import DatabaseConnect
 
 
 def getQuery(dc,
-             query):
+             query) -> List:
     cur = dc.conn.cursor()
     cur.execute(query)
     results = cur.fetchall()
