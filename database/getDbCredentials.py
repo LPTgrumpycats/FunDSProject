@@ -23,12 +23,14 @@ class DatabaseConnect:
         self.database = self.config[self.authSection]['database']
         self.username = self.config[self.authSection]['user']
         self.password = self.config[self.authSection]['password']
+        self.port = self.config[self.authSection]['port']
 
     def getConnection(self) -> None:
         self.conn = psycopg2.connect(host=self.host,
             database=self.database,
             user=self.username,
-            password=self.password)
+            password=self.password,
+            port=int(self.port))
 
 
 if __name__ == '__main__':

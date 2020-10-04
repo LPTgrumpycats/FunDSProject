@@ -22,4 +22,11 @@ if __name__ == '__main__':
     query = 'SELECT version()'
     results = getQuery(dc, query)
     print(results)
+
+    # test 2
+    query = '''
+    SELECT * FROM test_table
+    '''
+    results = getQuery(dc, query)
+    print(results)
     dc.conn.close()
