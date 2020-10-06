@@ -47,6 +47,7 @@ def insertQuery(dc,
 if __name__ == '__main__':
     dc = DatabaseConnect()
 
+    #TODO unit tests for these
     # test 1
     query = 'SELECT version()'
     results = getQuery(dc, query)
