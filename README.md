@@ -5,3 +5,9 @@ grumpy cats project
 `python 3.6+`
 
 `requirements.txt`
+
+## Running scripts
+`python3 -m FunDSProject.application.getAppCredentials`
+
+## Configuration file placement
+Place `.ini` files at the root folder under `FunDSProject`
