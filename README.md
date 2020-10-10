@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/LPTgrumpycats/FunDSProject.svg?branch=development)
+
 # FunDSProject
 grumpy cats project
 
