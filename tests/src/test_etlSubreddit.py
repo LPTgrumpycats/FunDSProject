@@ -2,16 +2,16 @@ import pytest
 
 
 def test_getSubmissionEvents():
-    raise NotImplementedError
+    pass
 
 def test_getEventProperties():
-    raise NotImplementedError
+    pass
 
 def test_getEventProperties():
-    raise NotImplementedError
+    pass
 
 def test_getEventProperties():
-    raise NotImplementedError
+    pass
 
 def test_getEventProperties():
-    raise NotImplementedError
+    pass

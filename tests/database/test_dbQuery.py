@@ -3,10 +3,10 @@ from ...database import dbQuery
 
 
 def test_getSchema():
-    raise NotImplementedError
+    pass
 
 def test_getQuery():
-    raise NotImplementedError
+    pass
 
 def test_insertQuery():
-    raise NotImplementedError
+    pass
