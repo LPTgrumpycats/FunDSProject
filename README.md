@@ -1,4 +1,5 @@
-![Build Status](https://travis-ci.org/LPTgrumpycats/FunDSProject.svg?branch=development)
+[![Build Status](https://travis-ci.org/LPTgrumpycats/FunDSProject.svg?branch=development)](https://travis-ci.org/LPTgrumpycats/FunDSProject)[![codecov](https://codecov.io/gh/LPTgrumpycats/FunDSProject/branch/development/graph/badge.svg)](https://codecov.io/gh/LPTgrumpycats/FunDSProject)
+
 
 # FunDSProject
 grumpy cats project
